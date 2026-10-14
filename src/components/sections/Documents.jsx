@@ -1,0 +1,143 @@
+import { useEffect, useState } from 'react';
+import iotFertilizationProposal from '../../assets/Proposal IoT Field Monitoring & Fertilization.pdf';
+import cropRecommendationProposal from '../../assets/IT21811104_R26_IT_066 - Asel.pdf';
+import diseaseSeverityProposal from '../../assets/IT22261632_R26-IT-066 - Buddhini.pdf';
+import yieldEstimationProposal from '../../assets/IT22266446_IT_066_R26 - Hiruni.pdf';
+import iotFertilizationThesis from '../../assets/R26_IT_066_IT22178718_Draft_Thesis_Report.pdf';
+import diseaseSeverityThesis from '../../assets/R26_IT_066_IT22261632_Draft_Thesis_Report.pdf';
+import yieldEstimationThesis from '../../assets/R26_IT_066_IT22266446_Draft_Thesis_Report.pdf';
+
+const documentFiles = [
+  'files/project-charter.pdf',
+  iotFertilizationProposal,
+  cropRecommendationProposal,
+  diseaseSeverityProposal,
+  yieldEstimationProposal,
+  iotFertilizationThesis,
+  diseaseSeverityThesis,
+  yieldEstimationThesis,
+];
+
+export default function Documents() {
+  const [filter, setFilter] = useState('all');
+  const [missingFiles, setMissingFiles] = useState(() => new Set());
+
+  useEffect(() => {
+    let active = true;
+
+    Promise.all(
+      documentFiles.map(async (file) => {
+        try {
+          const response = await fetch(file, { method: 'HEAD' });
+          return response.ok ? null : file;
+        } catch {
+          return file;
+        }
+      }),
+    ).then((results) => {
+      if (active) {
+        setMissingFiles(new Set(results.filter(Boolean)));
+      }
+    });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  return (
+    <>
+      <section className="s alt" id="documents">
+        <div className="wrap">
+          <div className="s-head">
+            <div>
+              <span className="eyebrow">Document repository</span>
+              <h2>Research, in detail.</h2>
+            </div>
+            <p>Open project documents in your browser or download the PDF.</p>
+          </div>
+      
+          <div className="filters" role="group" aria-label="Filter documents">
+            <button type="button" data-f="all" aria-pressed={filter === 'all'} onClick={() => setFilter('all')}>All documents</button>
+            <button type="button" data-f="project" aria-pressed={filter === 'project'} onClick={() => setFilter('project')}>Project</button>
+            <button type="button" data-f="proposal" aria-pressed={filter === 'proposal'} onClick={() => setFilter('proposal')}>Proposals</button>
+            <button type="button" data-f="thesis" aria-pressed={filter === 'thesis'} onClick={() => setFilter('thesis')}>Theses</button>
+          </div>
+      
+          <div className="docs" id="docs">
+            <article className="doc" data-cat="project" data-missing={missingFiles.has('files/project-charter.pdf') ? '' : undefined} hidden={filter !== 'all' && filter !== 'project'}>
+              <div className="doc-top"><span className="cat">Project</span><span className="doc-ic">PDF</span></div>
+              <h3>Project Charter</h3>
+              <p>Topic assessment and project charter for R26-IT-066.</p>
+              <div className="doc-act"><a className="btn btn-line btn-sm" href="files/project-charter.pdf" target="_blank" rel="noopener">View ↗</a><a className="btn btn-gold btn-sm" href="files/project-charter.pdf" download>Download ↓</a></div>
+            </article>
+      
+            <article className="doc" data-cat="proposal" data-missing={missingFiles.has(iotFertilizationProposal) ? '' : undefined} hidden={filter !== 'all' && filter !== 'proposal'}>
+              <div className="doc-top"><span className="cat">Proposal</span><span className="doc-ic">PDF</span></div>
+              <h3>Proposal: IoT Field Monitoring &amp; Fertilization</h3>
+              <p className="who-line">Karalliyadda K.K.U.B.M.U.B · IT22178718</p>
+              <p>Individual proposal report · March 2026</p>
+              <div className="doc-act"><a className="btn btn-line btn-sm" href={iotFertilizationProposal} target="_blank" rel="noopener">View ↗</a><a className="btn btn-gold btn-sm" href={iotFertilizationProposal} download="Proposal IoT Field Monitoring & Fertilization.pdf">Download ↓</a></div>
+            </article>
+      
+            <article className="doc" data-cat="proposal" data-missing={missingFiles.has(cropRecommendationProposal) ? '' : undefined} hidden={filter !== 'all' && filter !== 'proposal'}>
+              <div className="doc-top"><span className="cat">Proposal</span><span className="doc-ic">PDF</span></div>
+              <h3>Proposal: Smart Crop Recommendation</h3>
+              <p className="who-line">Bandara R.M.A.S · IT21811104</p>
+              <p>Individual proposal report · March 2026</p>
+              <div className="doc-act"><a className="btn btn-line btn-sm" href={cropRecommendationProposal} target="_blank" rel="noopener">View ↗</a><a className="btn btn-gold btn-sm" href={cropRecommendationProposal} download="IT21811104_R26_IT_066 - Asel.pdf">Download ↓</a></div>
+            </article>
+      
+            <article className="doc" data-cat="proposal" data-missing={missingFiles.has(diseaseSeverityProposal) ? '' : undefined} hidden={filter !== 'all' && filter !== 'proposal'}>
+              <div className="doc-top"><span className="cat">Proposal</span><span className="doc-ic">PDF</span></div>
+              <h3>Proposal: Disease Detection &amp; Severity</h3>
+              <p className="who-line">Harshika M.A.B · IT22261632</p>
+              <p>Individual proposal report · March 2026</p>
+              <div className="doc-act"><a className="btn btn-line btn-sm" href={diseaseSeverityProposal} target="_blank" rel="noopener">View ↗</a><a className="btn btn-gold btn-sm" href={diseaseSeverityProposal} download="IT22261632_R26-IT-066 - Buddhini.pdf">Download ↓</a></div>
+            </article>
+      
+            <article className="doc" data-cat="proposal" data-missing={missingFiles.has(yieldEstimationProposal) ? '' : undefined} hidden={filter !== 'all' && filter !== 'proposal'}>
+              <div className="doc-top"><span className="cat">Proposal</span><span className="doc-ic">PDF</span></div>
+              <h3>Proposal: Harvest Yield Estimation</h3>
+              <p className="who-line">Weerasinghe W.A.H.V · IT22266446</p>
+              <p>Individual proposal report · March 2026</p>
+              <div className="doc-act"><a className="btn btn-line btn-sm" href={yieldEstimationProposal} target="_blank" rel="noopener">View ↗</a><a className="btn btn-gold btn-sm" href={yieldEstimationProposal} download="IT22266446_IT_066_R26 - Hiruni.pdf">Download ↓</a></div>
+            </article>
+      
+            <article className="doc" data-cat="thesis" data-missing={missingFiles.has(iotFertilizationThesis) ? '' : undefined} hidden={filter !== 'all' && filter !== 'thesis'}>
+              <div className="doc-top"><span className="cat">Thesis</span><span className="doc-ic">PDF</span></div>
+              <h3>Thesis: IoT Field Monitoring &amp; Fertilization</h3>
+              <p className="who-line">Karalliyadda K.K.U.B.M.U.B · IT22178718</p>
+              <p>The final thesis will be available here.</p>
+              <div className="doc-act"><a className="btn btn-line btn-sm" href={iotFertilizationThesis} target="_blank" rel="noopener">View ↗</a><a className="btn btn-gold btn-sm" href={iotFertilizationThesis} download="R26_IT_066_IT22178718_Draft_Thesis_Report.pdf">Download ↓</a></div>
+            </article>
+      
+            <article className="doc" data-cat="thesis" hidden={filter !== 'all' && filter !== 'thesis'}>
+              <div className="doc-top"><span className="cat">Thesis</span><span className="doc-ic">PDF</span></div>
+              <h3>Thesis: Smart Crop Recommendation</h3>
+              <p className="who-line">Bandara R.M.A.S · IT21811104</p>
+              <p>The final thesis will be available here.</p>
+              <div className="doc-act"><span className="soon">Coming soon</span></div>
+            </article>
+      
+            <article className="doc" data-cat="thesis" data-missing={missingFiles.has(diseaseSeverityThesis) ? '' : undefined} hidden={filter !== 'all' && filter !== 'thesis'}>
+              <div className="doc-top"><span className="cat">Thesis</span><span className="doc-ic">PDF</span></div>
+              <h3>Thesis: Disease Detection &amp; Severity</h3>
+              <p className="who-line">Harshika M.A.B · IT22261632</p>
+              <p>The final thesis will be available here.</p>
+              <div className="doc-act"><a className="btn btn-line btn-sm" href={diseaseSeverityThesis} target="_blank" rel="noopener">View ↗</a><a className="btn btn-gold btn-sm" href={diseaseSeverityThesis} download="R26_IT_066_IT22261632_Draft_Thesis_Report.pdf">Download ↓</a></div>
+            </article>
+      
+            <article className="doc" data-cat="thesis" data-missing={missingFiles.has(yieldEstimationThesis) ? '' : undefined} hidden={filter !== 'all' && filter !== 'thesis'}>
+              <div className="doc-top"><span className="cat">Thesis</span><span className="doc-ic">PDF</span></div>
+              <h3>Thesis: Harvest Yield Estimation</h3>
+              <p className="who-line">Weerasinghe W.A.H.V · IT22266446</p>
+              <p>The final thesis will be available here.</p>
+              <div className="doc-act"><a className="btn btn-line btn-sm" href={yieldEstimationThesis} target="_blank" rel="noopener">View ↗</a><a className="btn btn-gold btn-sm" href={yieldEstimationThesis} download="R26_IT_066_IT22266446_Draft_Thesis_Report.pdf">Download ↓</a></div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
