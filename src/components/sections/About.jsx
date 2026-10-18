@@ -35,8 +35,8 @@ export default function About() {
             </article>
           </div>
           <div className="sup">
-            <div><small>Supervisor</small><b>Ms. Chathurangika Kahandawarachchi</b><span>Department of Information Technology, SLIIT</span></div>
-            <div><small>Co-supervisor</small><b>Ms. Buddhima Attanayake</b><span>Faculty of Computing, SLIIT</span></div>
+            <div><small>Supervisor</small><b>Ms. Chathurangika Kahandawaarachchi</b><span>Department of Information Technology, SLIIT</span></div>
+            <div><small>Co-supervisor</small><b>Ms. Buddhima Attanayaka</b><span>Faculty of Computing, SLIIT</span></div>
           </div>
         </div>
       </section>
