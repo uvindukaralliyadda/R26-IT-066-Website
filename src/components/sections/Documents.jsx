@@ -3,6 +3,7 @@ import iotFertilizationProposal from '../../assets/Proposal IoT Field Monitoring
 import cropRecommendationProposal from '../../assets/IT21811104_R26_IT_066 - Asel.pdf';
 import diseaseSeverityProposal from '../../assets/IT22261632_R26-IT-066 - Buddhini.pdf';
 import yieldEstimationProposal from '../../assets/IT22266446_IT_066_R26 - Hiruni.pdf';
+import groupThesis from '../../assets/R26_IT_066_Group_Thesis_Draft.pdf';
 import iotFertilizationThesis from '../../assets/R26_IT_066_IT22178718_Draft_Thesis_Report.pdf';
 import cropRecommendationThesis from '../../assets/R26_IT_066_IT21811104_Draft_Thesis_Report.pdf';
 import diseaseSeverityThesis from '../../assets/R26_IT_066_IT22261632_Draft_Thesis_Report.pdf';
@@ -14,6 +15,7 @@ const documentFiles = [
   cropRecommendationProposal,
   diseaseSeverityProposal,
   yieldEstimationProposal,
+  groupThesis,
   iotFertilizationThesis,
   cropRecommendationThesis,
   diseaseSeverityThesis,
@@ -104,6 +106,14 @@ export default function Documents() {
               <p className="who-line">Weerasinghe W.A.H.V · IT22266446</p>
               <p>Individual proposal report · March 2026</p>
               <div className="doc-act"><a className="btn btn-line btn-sm" href={yieldEstimationProposal} target="_blank" rel="noopener">View ↗</a><a className="btn btn-gold btn-sm" href={yieldEstimationProposal} download="IT22266446_IT_066_R26 - Hiruni.pdf">Download ↓</a></div>
+            </article>
+
+            <article className="doc" data-cat="thesis" data-missing={missingFiles.has(groupThesis) ? '' : undefined} hidden={filter !== 'all' && filter !== 'thesis'}>
+              <div className="doc-top"><span className="cat">Thesis</span><span className="doc-ic">PDF</span></div>
+              <h3>Common Thesis</h3>
+              <p className="who-line">Group report · R26-IT-066</p>
+              <p>Combined thesis covering all four components: IoT monitoring &amp; fertilization, crop recommendation, disease severity and yield estimation.</p>
+              <div className="doc-act"><a className="btn btn-line btn-sm" href={groupThesis} target="_blank" rel="noopener">View ↗</a><a className="btn btn-gold btn-sm" href={groupThesis} download="R26_IT_066_Group_Thesis_Draft.pdf">Download ↓</a></div>
             </article>
 
             <article className="doc" data-cat="thesis" data-missing={missingFiles.has(iotFertilizationThesis) ? '' : undefined} hidden={filter !== 'all' && filter !== 'thesis'}>
