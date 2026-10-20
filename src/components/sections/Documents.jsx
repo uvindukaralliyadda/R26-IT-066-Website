@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import topicAssessmentForm from '../../assets/TAF-R26-IT-066.pdf';
 import iotFertilizationProposal from '../../assets/Proposal IoT Field Monitoring & Fertilization.pdf';
 import cropRecommendationProposal from '../../assets/IT21811104_R26_IT_066 - Asel.pdf';
 import diseaseSeverityProposal from '../../assets/IT22261632_R26-IT-066 - Buddhini.pdf';
@@ -10,7 +11,7 @@ import diseaseSeverityThesis from '../../assets/R26_IT_066_IT22261632_Draft_Thes
 import yieldEstimationThesis from '../../assets/R26_IT_066_IT22266446_Draft_Thesis_Report.pdf';
 
 const documentFiles = [
-  'files/project-charter.pdf',
+  topicAssessmentForm,
   iotFertilizationProposal,
   cropRecommendationProposal,
   diseaseSeverityProposal,
@@ -69,11 +70,12 @@ export default function Documents() {
           </div>
 
           <div className="docs" id="docs">
-            <article className="doc" data-cat="project" data-missing={missingFiles.has('files/project-charter.pdf') ? '' : undefined} hidden={filter !== 'all' && filter !== 'project'}>
+            <article className="doc" data-cat="project" data-missing={missingFiles.has(topicAssessmentForm) ? '' : undefined} hidden={filter !== 'all' && filter !== 'project'}>
               <div className="doc-top"><span className="cat">Project</span><span className="doc-ic">PDF</span></div>
-              <h3>Project Charter</h3>
-              <p>Topic assessment and project charter for R26-IT-066.</p>
-              <div className="doc-act"><a className="btn btn-line btn-sm" href="files/project-charter.pdf" target="_blank" rel="noopener">View ↗</a><a className="btn btn-gold btn-sm" href="files/project-charter.pdf" download>Download ↓</a></div>
+              <h3>Topic Assessment Form</h3>
+              <p className="who-line">Group document · R26-IT-066</p>
+              <p>Topic assessment form submitted for R26-IT-066.</p>
+              <div className="doc-act"><a className="btn btn-line btn-sm" href={topicAssessmentForm} target="_blank" rel="noopener">View ↗</a><a className="btn btn-gold btn-sm" href={topicAssessmentForm} download="TAF-R26-IT-066.pdf">Download ↓</a></div>
             </article>
 
             <article className="doc" data-cat="proposal" data-missing={missingFiles.has(iotFertilizationProposal) ? '' : undefined} hidden={filter !== 'all' && filter !== 'proposal'}>
