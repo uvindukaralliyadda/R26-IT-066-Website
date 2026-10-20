@@ -4,9 +4,11 @@ export default function Hero() {
       <section className="hero" id="home">
         <div className="wrap">
           <div>
-            <span className="eyebrow">SLIIT Research · R26-IT-066</span>
+            <span className="eyebrow">SLIIT Research · R26-IT-066 · PaddyWise</span>
             <h1>Read the field. <em>Then</em> decide.</h1>
-            <p className="lead">PaddyWise is a decision support system for Sri Lankan paddy farmers. It turns soil sensor readings, leaf photos and market prices into clear guidance on what to plant, when to fertilize, how serious a disease is and whether treating it will pay off.</p>
+            <p className="lead">Decision Support System for Sri Lankan Paddy Cultivation to Optimize Financial Efficiency by 
+Predicting disease stages and Aligning Cultivation & Harvest According to Future Supply & 
+Demand</p>
             <div className="cta">
               <a className="btn btn-gold" href="#components">Explore PaddyWise ↓</a>
               <a className="btn btn-line" href="#domain">Discover the research →</a>

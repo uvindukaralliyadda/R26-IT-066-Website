@@ -10,7 +10,7 @@ export default function Domain() {
             </div>
             <p>The literature, gaps, questions and methods behind PaddyWise.</p>
           </div>
-      
+
           <div className="domain">
             <aside className="notebook">
               <span className="eyebrow">Research notebook</span>
@@ -18,7 +18,7 @@ export default function Domain() {
               <p>The project follows Design Science Research: identify the problem, define objectives, design and build the system, demonstrate it in the field, evaluate it and communicate the results.</p>
               <div className="q"><b>RESEARCH QUESTION</b>How can an integrated decision support system using IoT sensors, machine learning and market data help Sri Lankan paddy farmers make real-time, economically sound decisions on crop choice, fertilization and disease treatment?</div>
             </aside>
-      
+
             <div className="acc">
               <details open>
                 <summary>Literature survey</summary>
@@ -33,7 +33,7 @@ export default function Domain() {
                   </ul>
                 </div>
               </details>
-      
+
               <details>
                 <summary>Research gap</summary>
                 <div className="dbody">
@@ -46,7 +46,7 @@ export default function Domain() {
                   </div>
                 </div>
               </details>
-      
+
               <details>
                 <summary>Research problem</summary>
                 <div className="dbody">
@@ -54,7 +54,7 @@ export default function Domain() {
                   <p>Rice Blast, Brown Spot and uninformed crop selection can cause yield losses above 30% in severe seasons. Existing systems are fragmented: monitoring tools give no decision support, disease tools give no severity assessment and crop tools ignore market economics.</p>
                 </div>
               </details>
-      
+
               <details>
                 <summary>Research objectives</summary>
                 <div className="dbody">
@@ -67,7 +67,7 @@ export default function Domain() {
                   </ol>
                 </div>
               </details>
-      
+
               <details>
                 <summary>Methodology &amp; data</summary>
                 <div className="dbody">
@@ -83,7 +83,7 @@ export default function Domain() {
                   <p className="muted">Ethics: farmer consent forms, data anonymisation and SLIIT ethics clearance. Data is encrypted in transit and at rest.</p>
                 </div>
               </details>
-      
+
               <details>
                 <summary>Evaluation strategy</summary>
                 <div className="dbody">
@@ -102,7 +102,35 @@ export default function Domain() {
                   <p className="muted">Results are compared against traditional farmer practice and static recommendation systems.</p>
                 </div>
               </details>
-      
+
+              <details>
+                <summary>References</summary>
+                <div className="dbody">
+                  <ol className="refs" style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                    {[
+                      <>Department of Agriculture – Sri Lanka, “Crop Recommendations and Fertilizer Guidelines,” 2021.</>,
+                      <>Y. Wang, U. S. R. Dhamodharan, N. Sarwar, F. A. Almalki, and D. Mohan, “A hybrid approach for rice crop disease detection in agricultural IoT system,” <i>Discover Sustainability</i>, vol. 5, art. no. 99, 2024.</>,
+                      <>I. Abdurrahman and A. M. Miyim, “Machine learning model for predicting rice crop yield: A case study in Hadejia and Auyo, Nigeria,” <i>UMYU Scientifica</i>, vol. 4, no. 1, pp. 239–249, 2025.</>,
+                      <>D. Pathirana and W. Wijesinghe, “Challenges in adopting smart farming technologies in Sri Lanka,” <i>Journal of Agricultural Sciences – Sri Lanka</i>, 2020. [Online]. Available: <a href="https://jas.sljol.info" target="_blank" rel="noreferrer">https://jas.sljol.info</a></>,
+                    ].map((ref, i) => (
+                      <li
+                        key={i}
+                        style={{
+                          display: "grid",
+                          gridTemplateColumns: "2.5em 1fr",
+                          gap: "0.25em",
+                          marginBottom: "0.6em",
+                          lineHeight: 1.5,
+                        }}
+                      >
+                        <span>[{i + 1}]</span>
+                        <span style={{ overflowWrap: "anywhere" }}>{ref}</span>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              </details>
+
               <details>
                 <summary>Commercialization</summary>
                 <div className="dbody">
@@ -115,8 +143,7 @@ export default function Domain() {
               </details>
             </div>
           </div>
-      
-          
+
           <div className="arch">
             <span className="eyebrow">System architecture</span>
             <h3>One connected platform.</h3>

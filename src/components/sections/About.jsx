@@ -3,6 +3,8 @@ import uvinduPhoto from '../../assets/uvindu.jpeg';
 import aselPhoto from '../../assets/asel.jpeg';
 import buddhiPhoto from '../../assets/buddhi.jpeg';
 import hiruniPhoto from '../../assets/hiruni.jpeg';
+import chathurangikaPhoto from '../../assets/chathurangika.jpeg';
+import buddhimaPhoto from '../../assets/buddhima.jpeg';
 
 export default function About() {
   return (
@@ -34,9 +36,16 @@ export default function About() {
               <div className="mb"><h3>Weerasinghe W.A.H.V</h3><p className="id">IT22266446</p><p className="role">Harvest Yield Estimation</p><p className="spec">SLIIT · Information Technology</p></div>
             </article>
           </div>
-          <div className="sup">
-            <div><small>Supervisor</small><b>Ms. Chathurangika Kahandawaarachchi</b><span>Department of Information Technology, SLIIT</span></div>
-            <div><small>Co-supervisor</small><b>Ms. Buddhima Attanayaka</b><span>Faculty of Computing, SLIIT</span></div>
+
+          <div className="team sup-team">
+            <article className="member">
+              <div className="photo"><TeamPhoto src={chathurangikaPhoto} alt="Ms. Chathurangika Kahandawaarachchi" initials="CK" /></div>
+              <div className="mb"><h3>Ms. Chathurangika Kahandawaarachchi</h3><p className="id">Supervisor</p><p className="role">Department of Computer Systems Engineering | Faculty of Computing</p><p className="spec">SLIIT · Faculty of Computing</p></div>
+            </article>
+            <article className="member">
+              <div className="photo"><TeamPhoto src={buddhimaPhoto} alt="Ms. Buddhima Attanayaka" initials="BA" /></div>
+              <div className="mb"><h3>Ms. Buddhima Attanayaka</h3><p className="id">Co-supervisor</p><p className="role">Department of Computer Systems Engineering | Faculty of Computing</p><p className="spec">SLIIT · Faculty of Computing</p></div>
+            </article>
           </div>
         </div>
       </section>

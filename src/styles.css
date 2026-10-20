@@ -69,6 +69,29 @@ p{margin:0}
   .links a{padding:12px 14px}
 }
 
+.sup-team {
+  --gap: 24px;               /* set this to the same gap your .team uses */
+  display: grid;
+  grid-template-columns: repeat(2, calc((100% - 3 * var(--gap)) / 4));
+  justify-content: center;
+  gap: var(--gap);
+  margin-top: var(--gap);
+}
+
+/* tablet: match a 2-column team layout */
+@media (max-width: 900px) {
+  .sup-team {
+    grid-template-columns: repeat(2, calc((100% - var(--gap)) / 2));
+  }
+}
+
+/* mobile: stack like the team cards */
+@media (max-width: 560px) {
+  .sup-team {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---------- HERO ---------- */
 .hero{padding-block:104px 112px;overflow:hidden}
 .hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:80px;align-items:center}
@@ -322,3 +345,5 @@ footer ul a:hover{color:var(--accent-text)}
 
 @media (max-width:920px){.hero .wrap{grid-template-columns:1fr;gap:48px}.hero{padding-block:56px 64px}section.s{padding-block:96px}.idea{gap:40px}}
 @media (max-width:480px){.readings{grid-template-columns:1fr 1fr}.rd:nth-child(2){border-right:0}.rd:nth-child(3){grid-column:1/-1;border-top:1px solid var(--line)}section.s{padding-block:72px}.comp,.arch,.ms-item{padding:24px}.s-head{margin-bottom:40px}}
+
+
