@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import topicAssessmentForm from '../../assets/TAF-R26-IT-066.pdf';
+import plannerChecklist from '../../assets/R26-IT-066.xlsx?url';
 import iotFertilizationProposal from '../../assets/Proposal IoT Field Monitoring & Fertilization.pdf';
 import cropRecommendationProposal from '../../assets/IT21811104_R26_IT_066 - Asel.pdf';
 import diseaseSeverityProposal from '../../assets/IT22261632_R26-IT-066 - Buddhini.pdf';
@@ -12,6 +13,7 @@ import yieldEstimationThesis from '../../assets/R26_IT_066_IT22266446_Draft_Thes
 
 const documentFiles = [
   topicAssessmentForm,
+  plannerChecklist,
   iotFertilizationProposal,
   cropRecommendationProposal,
   diseaseSeverityProposal,
@@ -76,6 +78,14 @@ export default function Documents() {
               <p className="who-line">Group document · R26-IT-066</p>
               <p>Topic assessment form submitted for R26-IT-066.</p>
               <div className="doc-act"><a className="btn btn-line btn-sm" href={topicAssessmentForm} target="_blank" rel="noopener">View ↗</a><a className="btn btn-gold btn-sm" href={topicAssessmentForm} download="TAF-R26-IT-066.pdf">Download ↓</a></div>
+            </article>
+
+            <article className="doc" data-cat="project" data-missing={missingFiles.has(plannerChecklist) ? '' : undefined} hidden={filter !== 'all' && filter !== 'project'}>
+              <div className="doc-top"><span className="cat">Project</span><span className="doc-ic">XLSX</span></div>
+              <h3>Checklist</h3>
+              <p className="who-line">Group document · R26-IT-066</p>
+              <p>Microsoft Planner task record tracking project progress for R26-IT-066.</p>
+              <div className="doc-act"><a className="btn btn-gold btn-sm" href={plannerChecklist} download="R26-IT-066.xlsx">Download ↓</a></div>
             </article>
 
             <article className="doc" data-cat="proposal" data-missing={missingFiles.has(iotFertilizationProposal) ? '' : undefined} hidden={filter !== 'all' && filter !== 'proposal'}>
